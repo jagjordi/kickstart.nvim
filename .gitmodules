@@ -1,0 +1,3 @@
+[submodule "pluggins/vim-snippets"]
+	path = pluggins/vim-snippets
+	url = git@github.com:jagjordi/vim-snippets
