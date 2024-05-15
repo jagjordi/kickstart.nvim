@@ -41,8 +41,20 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = '\\'
+vim.g.maplocalleader = '\\'
+
+vim.o.wildignorecase = true
+
+-- tabs settings
+vim.o.tabstop = 4 
+vim.o.softtabstop = 4 
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+-- hybird line numbers
+vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -190,11 +202,9 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
+    'nordtheme/vim',
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'nord'
     end,
   },
 
