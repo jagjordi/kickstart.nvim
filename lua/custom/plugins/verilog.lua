@@ -1,3 +1,3 @@
 return {
-  "vim-scripts/vlog_inst_gen"
-}
+    dir = "~/.config/nvim/pluggins/vlog_inst_gen.vim"
+    }

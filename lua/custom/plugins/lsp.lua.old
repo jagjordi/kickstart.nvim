@@ -1,8 +1,26 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = {
+    "tamago324/nlsp-settings.nvim",
+  },
   config = function()
     local lspconfig = require("lspconfig")
-    lspconfig.verible.setup {}
+    local lspconfutil = require("lspconfig.util")
+    local nlspsettings = require("nlspsettings")
+
+    lspconfig.svlangserver.setup {}
+    -- lspconfig.verible.setup {}
+
+    -- local veridian_root = lspconfutil.root_pattern("veridian.yml", ".git")
+    -- lspconfig.veridian.setup {
+    --   cmd = { "veridian" },
+    --   root_dir = function(fname)
+    --     local filename = lspconfutil.path.is_absolute(fname) and fname
+    --     or lspconfutil.path.join(vim.loop.cwd(), fname)
+    --     return veridian_root(filename) or lspconfutil.path.dirname(filename)
+    -- end;
+    -- }
+
     lspconfig.pyright.setup {}
     lspconfig.ltex.setup {
       settings = {
@@ -11,6 +29,9 @@ return {
         }
       }
     }
+
+    -- nlspsettings.setup {}
+
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
